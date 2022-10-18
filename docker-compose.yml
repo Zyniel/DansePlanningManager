@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+    mongo:
+        ports:
+            - '27017:27017'
+        container_name: mongodb
+        restart: "unless-stopped"
+        logging:
+            options:
+                max-size: 1g
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=dbadmin
+            - MONGO_INITDB_ROOT_PASSWORD="${DOCKER_MONDB_PASSWORD}"
+        image: mongo
+        volumes: 
+          - "L:/MongoDB/database:/data/db"
+ 
+volumes: 
+  my_data:

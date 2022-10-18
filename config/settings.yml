@@ -1,0 +1,75 @@
+title : Danser Planning Extractor
+help :
+
+app:
+  environment : development
+  debug : True
+
+  folders : 
+    output : L:\Projects\DansePlanningManager\output
+    images-downloaded : downloaded
+    images-matched-low : matched-low
+    images-matched-med : matched-med
+    images-matched-top : matched-top
+
+  scrapper :
+    pages :
+      - val.valain
+    search-depth : 5
+    safety-delay : 2
+
+  parser :
+    tesseract-exe : C:\Program Files\Tesseract-OCR\tesseract.exe
+    match-top-threshold : 45
+    match-med-threshold : 40
+    detection-lower-color-hsv :
+      - 90
+      - 30
+      - 253
+    detection-upper-color-hsv :
+      - 97
+      - 90
+      - 255
+
+  calendars :
+    google : 
+      app-name : DansePlanning
+      client-id : 4e7a61b8-00d1-4cdb-bc64-954af9ed4caa
+      enabled : true
+    microsoft : 
+      app-name : DansePlanning
+      client-id : 4e7a61b8-00d1-4cdb-bc64-954af9ed4caa
+      enabled : true
+
+  storage :
+    google : 
+      folder-matched-low : /DansePlanning/matched-low
+      folder-matched-med : /DansePlanning/matched-med
+      folder-matched-top : /DansePlanning/matched-top
+      enabled : true
+    microsoft : 
+      folder-matched-low : /DansePlanning/matched-low
+      folder-matched-med : /DansePlanning/matched-med
+      folder-matched-top : /DansePlanning/matched-top
+      enabled : true
+
+  notifiers :
+    whatsapp :
+      user-dir-folder : L:\Projects\DansePlanningManager\userdata\edge
+      enabled : true
+
+databases : 
+  mongodb:
+    host: localhost
+    port: 27017
+    db: danseplanning
+
+logs:
+  ERRORS : logs/errors.log
+  INFO : data/info.log
+
+files:
+  database : database
+  static : static
+  templates : templates
+  models : models
